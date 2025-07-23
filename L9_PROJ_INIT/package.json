@@ -9,5 +9,8 @@
   },
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "g5-npm-package": "^2.1.2"
+  }
 }

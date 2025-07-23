@@ -1,0 +1,22 @@
+{
+  "name": "g5-npm-package",
+  "version": "2.1.2",
+  "description": "THIS IS MY FIRST NPM PACKAGE FOR G5",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pratiyushray/g5_web_dev.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pratiyushray/g4_web_dev/issues"
+  },
+  "homepage": "https://github.com/pratiyushray/g4_web_dev#readme",
+  "devDependencies": {
+    "@changesets/cli": "^2.29.5"
+  }
+}
