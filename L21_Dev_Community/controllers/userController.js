@@ -1,29 +1,38 @@
 const User = require("../models/userModel");
 
-
-const registerUser = async(req,res) =>{ 
+const registerUser = async (req,res) =>{
     const { firstName, lastName, emailId, password} = req.body;
 
-    // VALIDATION
+    //VALIDATION
 
-    if (!firstName || !lastName || !emailId || !password){
-        res.status(400).send({message:"Please Add all Fields"})
+    if (!firstName || !emailId || !password){
+        res.status(400).send({message:"Please Add all mandatory fields"});
     }
 
-    const user = new User({
-        "firstName": "Pransh",
-        "lastName": "Maurya",
-        "emailId": "pransh@gmail.com",
-        "password": "Pransh@123"
-    })
+    //Check the user existing already in db or not
+    const userExists = await User.findOne({emailId});
+    if (userExists){
+        res.status(400).json({message: "Already Exist"});
+    }
 
-    await user.save();
+    //CREATE USER IN YOUR DATABASE
 
+    const newUser = await User.create({
+        firstName,
+        lastName,
+        emailId,
+        password
+    });
 
+    await newUser.save();
+    
+    res.status(201).json("USER CREATED",{newUser});
+    
 }
 
-module.exports = registerUser;
 
-// const loginUser = () =>{
+// const loginUser = () => {
 
 // }
+
+module.exports = { registerUser }
