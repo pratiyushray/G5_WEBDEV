@@ -26,6 +26,7 @@ app.get("/updatename",(req,res)=>{
         client.json({name});
 
     }
+    res.send({success: "DATA UPDATED SUCCESFULLY"})
 })
 
 
